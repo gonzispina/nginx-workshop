@@ -51,25 +51,25 @@ The first API is *'Ping'*. This is a simple API that has no cache, and it could 
 
 As you can see our server received the request as well as our reverse proxy
 
-![request](https://gitlab.com/gonzalo.spina/nginx-workshop/tree/master/static/caching-content/ping3.png)
+![request](../../static/caching-content/ping3.png)
 
 And the result we've got is a JSON body with the pong response.
 
-![headers](https://gitlab.com/gonzalo.spina/nginx-workshop/tree/master/static/caching-content/ping2.png)
+![headers](../../static/caching-content/ping2.png)
 
 Now let's try an endpoint with a cache set up. The *file* API retrieves plain text files.
 
-![request](https://gitlab.com/gonzalo.spina/nginx-workshop/tree/master/static/caching-content/cache-empty-file2.png)
+![request](../../static/caching-content/cache-empty-file2.png)
 
-![headers](https://gitlab.com/gonzalo.spina/nginx-workshop/tree/master/static/caching-content/cache-empty-file1.png)
+![headers](../../static/caching-content/cache-empty-file1.png)
 
 As we can see in the first image, the request reached our server and in the response headers (the second image) we've got a custom header *X-Cache-Status → MISS* set by NGINX telling us that it couldn't find that file in its cache. Let's try again and see what happens
 
-![headers](https://gitlab.com/gonzalo.spina/nginx-workshop/tree/master/static/caching-content/cache-empty-file3.png)
+![headers](../../static/caching-content/cache-empty-file3.png)
 
 Now, the value for the status header says *HIT*
 
-![request](https://gitlab.com/gonzalo.spina/nginx-workshop/tree/master/static/caching-content/cache-empty-file4.png)
+![request](../../static/caching-content/cache-empty-file4.png)
 
 And effectively that request didn't reach the server, instead the file was pulled from the cache by NGINX. The first to lines represents the first request, the one we used to populate the cache, and the third line represents our last request, so where we can see the server did not got hit.
 

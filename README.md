@@ -35,7 +35,7 @@ High‑traffic websites must support hundreds of thousands, if not millions, of 
 
 Caching accelerates content serving by storing request responses to be served again in the future. Content caching reduces load to upstream servers, caching the full response rather than running computations and queries again for the same request. Caching increases performance and reduces load, meaning you can serve faster with fewer resources. Scaling and distributing caching servers in strategic locations can have a dramatic effect on user experience. It’s optimal to host content close to the consumer for the best performance. You can also cache your content close to your users. This is the pattern of content delivery networks, or CDNs. With NGINX you’re able to cache your content wherever you can place an NGINX server, effectively enabling you to create your own CDN. With NGINX caching, you’re also able to passively cache and serve cached responses in the event of an upstream failure.
 
-[Creating a reverse Proxy Cache server with NGINX](https://gitlab.com/gonzalo.spina/nginx-workshop/tree/master/src/web-acceleration/caching-content)
+[Creating a reverse Proxy Cache server with NGINX](/src/web-acceleration/caching-content)
 
 #### NGINX vs Redis. What should I use?
 
@@ -60,7 +60,7 @@ By default, NGINX provides a buffering method to off load the proxied server by 
 
 If buffering is disabled, the response is sent to the client synchronously while it is receiving it from the proxied server. This behavior may be desirable for fast interactive clients that need to start receiving the response as soon as possible. However, disabling buffering but can make the backend server vulnerable to a Slowloris attack. Slowloris is a type of denial-of-service (DOS) attack, which allows an attacker to overwhelm a targeted server by opening and maintaining many simultaneous HTTP connections between the attacker and the target. It operates by using partial HTTP requests. The attack is made by opening connections to a targeted Web server and then keeping those connections open as long as it can.
 
-[Tunning NGINX Buffering](https://gitlab.com/gonzalo.spina/nginx-workshop/tree/master/src/web-acceleration/buffering-offload)
+[Tunning NGINX Buffering](/src/web-acceleration/buffering-offload)
 
 ### Compression
 HTTP compression is a capability that can be built into web servers and web clients to improve transfer speed and bandwidth utilization.
@@ -70,7 +70,7 @@ Compressing responses often significantly reduces the size of transmitted data. 
 
 By default, NGINX does not compress responses to proxied requests (requests that come from the proxy server). The fact that a request comes from a proxy server is determined by the presence of the Via header field in the request. To configure compression of these responses, use the gzip_proxied directive. The directive has a number of parameters specifying which kinds of proxied requests NGINX should compress. For example, it is reasonable to compress responses only to requests that will not be cached on the proxy server. For this purpose the gzip_proxied directive has parameters that instruct NGINX to check the Cache-Control header field in a response and compress the response if the value is no-cache, no-store, or private. In addition, you must include the expired parameter to check the value of the Expires header field. These parameters are set in the following example, along with the auth parameter, which checks for the presence of the Authorization header field
 
-[Guide to enable the NGINX copression features](https://gitlab.com/gonzalo.spina/nginx-workshop/tree/master/src/web-acceleration/buffering-offload)
+[Guide to enable the NGINX copression features](/src/web-acceleration/buffering-offload)
 
 ## Load Balancing & DNS Resolving for Scaling services.
 
@@ -87,11 +87,11 @@ Also, ensuring that the application is healthy is really important. For a number
 ### Session Persistence
 Nowadays session state is immensely valuable and vast in interactive applications. Information about a user’s session is often stored locally in the browser. For example, in a shopping cart application the items in a user’s cart might be stored at the browser level until the user is ready to purchase them. Changing which server receives requests from that client in the middle of the shopping session can cause performance issues or outright transaction failure. In such cases, it is essential that all requests from a client are sent to the same server for the duration of the session. This is known as session persistence. NGINX provides an intelligent way to stick these connections to the proper backend server.
 
-[Guide to load balancing with NGINX](https://gitlab.com/gonzalo.spina/nginx-workshop/tree/master/src/load-balancing)
+[Guide to load balancing with NGINX](/src/load-balancing)
 
 ## Security and Firewalling
 
-[Making your app secure with NGINX](https://gitlab.com/gonzalo.spina/nginx-workshop/tree/master/src/security)
+[Making your app secure with NGINX](/src/security)
 
 ## References
 
