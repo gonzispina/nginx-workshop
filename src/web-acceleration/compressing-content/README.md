@@ -45,8 +45,8 @@ Let's try the one that serves the file without compression and see what happens.
 	curl -H 'Accept-Encoding: gzip' http://localhost/v1/uncompressed --output $HOME/uncompressed -v
 ```
 
-![request](../../static/compressing-content/compressing1.png)
-![curl](../../static/compressing-content/compressing2.png)
+![request](../../../static/compressing-content/compressing1.png)
+![curl](../../../static/compressing-content/compressing2.png)
 
 As we can see, the server sent the request to NGINX in 74 miliseconds and because of our "slow connection" (I simulated this by reducing the bandwidth with nginx as we will see later) it took 30 seconds to be delivered to us from NGINX. If we look into the curl response we will see a body of 29.6MB size.
 
@@ -56,8 +56,8 @@ Now let's try the compressed API
 	curl -H 'Accept-Encoding: gzip' http://localhost/v1/compressed --output $HOME/compressed -v
 ```
 
-![request](../../static/compressing-content/compressing3.png)
-![curl](../../static/compressing-content/compressing4.png)
+![request](../../../static/compressing-content/compressing3.png)
+![curl](../../../static/compressing-content/compressing4.png)
 
 This time, response took less than a second to be delivered to us. If we look into the curl response we will see the *Vary: Accept-Encoding* and *Content-Encoding: gzip* header in the response and a body of 30KB size aprox.
 
