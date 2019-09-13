@@ -1,0 +1,23 @@
+version: '3.5'
+networks:
+  ddos-nginx-net:
+    name: 'ddos-nginx-net'
+    driver: bridge
+services:
+  caching-content:
+    container_name: python-backend
+    image: python-backend:1.0.0
+    networks:
+      - ddos-nginx-net
+  nginx:
+    image: ddos-mitigation-nginx:1.0.0
+    container_name: nginx-ddos
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf
+    ports:
+      - "80:80"
+      - "443:443"
+    networks:
+      - ddos-nginx-net
+    depends_on:
+      - caching-content
