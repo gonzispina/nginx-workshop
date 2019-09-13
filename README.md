@@ -13,7 +13,7 @@ A forward proxy, often called a proxy, proxy server, or web proxy, is a server t
 - Identity Protection
 - Caching
 
-![Forward](https://gitlab.com/gonzalo.spina/nginx-workshop/blob/master/static/forward-proxy-flow.jpg)
+![Forward](https://github.com/gonzispina/nginx-workshop/tree/master/static/forward-proxy-flow.jpg)
 
 ### Reverse Proxy
 
@@ -24,7 +24,7 @@ A reverse proxy server is a type of proxy server that sits in front of one or mo
 
 We will be covering these concepts along this course
 
-![Reverse](https://gitlab.com/gonzalo.spina/nginx-workshop/blob/master/static/reverse-proxy-flow.jpg)
+![Reverse](https://github.com/gonzispina/nginx-workshop/tree/master/static/reverse-proxy-flow.jpg)
 
 ## Web Acceleration with NGINX
 
