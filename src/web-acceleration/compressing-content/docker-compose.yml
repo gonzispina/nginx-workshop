@@ -1,0 +1,28 @@
+version: '3.5'
+networks:
+  node-nginx-net:
+    name: 'node-nginx-net'
+    driver: bridge
+services:
+  compressing-content:
+    container_name: compressing-content
+    build: .
+    volumes:
+      - ./:/compressing-content
+      - /compressing-content/node_modules
+    environment:
+      NODE_ENV: development
+    networks:
+      - node-nginx-net
+  nginx:
+    image: nginx:latest
+    container_name: compressing-content-nginx
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf
+    ports:
+      - "80:80"
+      - "443:443"
+    networks:
+      - node-nginx-net
+    depends_on:
+      - compressing-content

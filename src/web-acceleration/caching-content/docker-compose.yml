@@ -1,0 +1,30 @@
+version: '3.5'
+networks:
+  node-nginx-net:
+    name: 'node-nginx-net'
+    driver: bridge
+services:
+  caching-content:
+    container_name: caching-content
+    build: .
+    volumes:
+      - ./:/caching-content
+      - /caching-content/node_modules
+    environment:
+      NODE_ENV: development
+    expose:
+      - 4500
+    networks:
+      - node-nginx-net
+  nginx:
+    image: nginx:latest
+    container_name: caching-content-nginx
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf
+    ports:
+      - "8080:8080"
+      - "4006:443"
+    networks:
+      - node-nginx-net
+    depends_on:
+      - caching-content

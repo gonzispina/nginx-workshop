@@ -1,0 +1,28 @@
+version: '3.5'
+networks:
+  node-nginx-net:
+    name: 'node-nginx-net'
+    driver: bridge
+services:
+  buffering-offload:
+    container_name: buffering-offload
+    build: .
+    volumes:
+      - ./:/buffering-offload
+      - /buffering-offload/node_modules
+    environment:
+      NODE_ENV: development
+    networks:
+      - node-nginx-net
+  nginx:
+    image: nginx:latest
+    container_name: buffering-offload-nginx
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf
+    ports:
+      - "80:80"
+      - "443:443"
+    networks:
+      - node-nginx-net
+    depends_on:
+      - buffering-offload
