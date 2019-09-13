@@ -70,7 +70,7 @@ Compressing responses often significantly reduces the size of transmitted data. 
 
 By default, NGINX does not compress responses to proxied requests (requests that come from the proxy server). The fact that a request comes from a proxy server is determined by the presence of the Via header field in the request. To configure compression of these responses, use the gzip_proxied directive. The directive has a number of parameters specifying which kinds of proxied requests NGINX should compress. For example, it is reasonable to compress responses only to requests that will not be cached on the proxy server. For this purpose the gzip_proxied directive has parameters that instruct NGINX to check the Cache-Control header field in a response and compress the response if the value is no-cache, no-store, or private. In addition, you must include the expired parameter to check the value of the Expires header field. These parameters are set in the following example, along with the auth parameter, which checks for the presence of the Authorization header field
 
-[Guide to enable the NGINX copression features](/src/web-acceleration/buffering-offload)
+[Guide to enable the NGINX copression features](/src/web-acceleration/compressing-content)
 
 ## Load Balancing & DNS Resolving for Scaling services.
 
