@@ -74,3 +74,5 @@ nginx/
 
 # virtual env
 env/
+
+nginx-plus-keys/
