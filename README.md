@@ -129,6 +129,9 @@ Nowadays session state is immensely valuable and vast in interactive application
 - https://www.youtube.com/watch?v=D6qojxvBuqg
 - https://www.nginx.com/products/nginx/live-activity-monitoring/
 - https://www.nginx.com/blog/dynamic-reconfiguration-with-nginx-plus/
+- https://www.nginx.com/blog/performance-tuning-tips-tricks
 
-
-https://www.nginx.com/blog/performance-tuning-tips-tricks
+### Recommended bibliography
+- "NGINX Cookbook" by Derek DeJonghe
+- "NGINX HTTP Server" by Martin Fjordvald and Clement Nedelcu
+- "Learn Docker - Fundamentals of Docker 18.x : Get up and running with the concepts of Docker" by Gabriel N. Schenker
