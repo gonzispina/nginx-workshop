@@ -9,6 +9,6 @@
   "author": "Gonzalo Spina",
   "license": "ISC",
   "dependencies": {
-    "fastify": "^2.7.1"
+    "fastify": "^2.15.1"
   }
 }
